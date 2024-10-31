@@ -9,6 +9,20 @@ public class Task04Main {
         // - запустить программу
         // - проверить, что получилось 351.731900
 
-        System.out.println("0.0");
+        // type input.test | java -cp ..\..\..\..\build\classes Task04Main.java
+
+        String input = new String(System.in.readAllBytes());
+        var split = input.split("[ \t\r\n]+");
+
+        double sum = 0;
+        for(var element : split) {
+            try {
+                sum += Double.parseDouble(element);
+            } catch(NumberFormatException ignored) {
+            }
+        }
+
+        String formattedSum = String.format("%.6f", sum);
+        System.out.println(formattedSum);
     }
 }
